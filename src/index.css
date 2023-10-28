@@ -9,5 +9,5 @@
 }
 
 select {
-  @apply border-b border-black pb-1
+  @apply border-b border-black pb-1 bg-transparent
 }
