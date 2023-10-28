@@ -8,7 +8,6 @@ Technical Test Reactjs Developer Sekawan Media
 
 - Node.js 18.17.0
 - React.js 18.2.0
-- React Router 6.17.0
 
 
 ## How to start project
