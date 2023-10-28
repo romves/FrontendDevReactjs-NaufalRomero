@@ -7,9 +7,11 @@ import Button from "../components/Button";
 
 const DetailPage = () => {
   const [data, setData] = useState<Restaurant>();
+  const [isLoading, setIsLoading] = useState(false);
   const { id } = useParams();
 
   useEffect(() => {
+    setIsLoading(true);
     const getData = async () => {
       const res = await fetch(
         `https://restaurant-api.dicoding.dev/detail/${id}`
@@ -18,9 +20,10 @@ const DetailPage = () => {
       setData(body.restaurant);
     };
     getData();
+    setIsLoading(false);
   }, [id]);
 
-  if (data)
+  if (data) {
     return (
       <main className="container space-y-10 py-8">
         <Link to="/">
@@ -88,6 +91,25 @@ const DetailPage = () => {
           </div>
         </div>
       </main>
+    );
+  } else if (isLoading) {
+    return (
+      <div className="w-full h-screen flex justify-center items-center">
+        <div className="text-center flex flex-col gap-8 w-max">
+          <p className="text-4xl font-semibold">Loading..</p>
+        </div>
+      </div>
+    );
+  } else
+    return (
+      <div className="w-full h-screen flex justify-center items-center">
+        <div className="text-center flex flex-col gap-8 w-max">
+          <p className="text-4xl font-semibold">Not Found</p>
+          <Link to="/">
+            <Button>Back to home page</Button>
+          </Link>
+        </div>
+      </div>
     );
 };
 
