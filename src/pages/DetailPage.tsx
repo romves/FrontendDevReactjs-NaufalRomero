@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Restaurant } from "../types/types"
+import { Restaurant } from "../types/types";
 import { IoChevronBack } from "react-icons/io5";
 import { useParams, Link } from "react-router-dom";
 import RatingStar from "../components/RatingStar";
@@ -68,19 +68,21 @@ const DetailPage = () => {
           <h2 className="text-3xl font-bold">Reviews</h2>
           <div className="space-y-4 py-12">
             {data.customerReviews.map((item) => (
-              <div className="flex items-start p-2 py-4 border-b justify-between">
-                <div className="flex gap-4">
+              <div className="flex items-start p-2 pb-4 md:p-4 md:pb-8 border-b justify-between">
+                <div className="flex gap-4 w-full">
                   <img
                     src="/images/user.png"
                     alt=""
-                    className="h-[8vh] object-cover rounded-full border-2 "
+                    className="w-[5vh] h-[5vh] aspect-square flex-shrink-0 object-cover rounded-full border-2 "
                   />
-                  <div>
-                    <h3 className="font-bold">{item.name}</h3>
-                    <p>{item.review}</p>
+                  <div className="flex flex-col md:flex-row justify-between w-full gap-4">
+                    <div>
+                      <h3 className="font-bold">{item.name}</h3>
+                      <p>{item.review}</p>
+                    </div>
+                    <p className="flex-shrink-0 text-gray-500">{item.date}</p>
                   </div>
                 </div>
-                <p>{item.date}</p>
               </div>
             ))}
           </div>

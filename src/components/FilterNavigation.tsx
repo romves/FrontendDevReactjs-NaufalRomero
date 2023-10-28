@@ -43,7 +43,6 @@ const FilterNavigation = () => {
       setFilteredData(restaurantModified);
     };
     getData();
-    
   }, [fetchCategory, setFilteredData]);
 
   useEffect(() => {
@@ -110,40 +109,44 @@ const FilterNavigation = () => {
 
   return (
     <div className="flex justify-between w-full border-y py-4">
-      <div className="flex gap-4 items-center">
-        <p>Filter By:</p>
-        <select
-          value={filter.status}
-          onChange={(e) => setFilter({ ...filter, status: e.target.value })}
-        >
-          <option value="">Status</option>
-          <option value="open">Open Now</option>
-          <option value="closed">Closed</option>
-        </select>
-        <select
-          value={filter.priceFilter}
-          onChange={(e) =>
-            setFilter({ ...filter, priceFilter: e.target.value })
-          }
-        >
-          <option value="">Select Price</option>
-          <option value="highest">Highest Price</option>
-          <option value="lowest">Lowest Price</option>
-        </select>
-        <select
-          value={filter.categoryFilter}
-          onChange={(e) => setFilter({...filter, categoryFilter: e.target.value})}
-        >
-          <option value="">Select Category</option>
-          <option value="Italia">Italia</option>
-          <option value="Modern">Modern</option>
-          <option value="Jawa">Jawa</option>
-        </select>
-      </div>
+      <div className="overflow-x-auto flex justify-between gap-8 w-full">
+        <div className="flex gap-4 items-center flex-shrink-0">
+          <p>Filter By:</p>
+          <select
+            value={filter.status}
+            onChange={(e) => setFilter({ ...filter, status: e.target.value })}
+          >
+            <option value="">Status</option>
+            <option value="open">Open Now</option>
+            <option value="closed">Closed</option>
+          </select>
+          <select
+            value={filter.priceFilter}
+            onChange={(e) =>
+              setFilter({ ...filter, priceFilter: e.target.value })
+            }
+          >
+            <option value="">Select Price</option>
+            <option value="highest">Highest Price</option>
+            <option value="lowest">Lowest Price</option>
+          </select>
+          <select
+            value={filter.categoryFilter}
+            onChange={(e) =>
+              setFilter({ ...filter, categoryFilter: e.target.value })
+            }
+          >
+            <option value="">Select Category</option>
+            <option value="Italia">Italia</option>
+            <option value="Modern">Modern</option>
+            <option value="Jawa">Jawa</option>
+          </select>
+        </div>
 
-      <Button variant="outline" className="px-10" onClick={clearAllFilters}>
-        CLEAR ALL
-      </Button>
+        <Button variant="outline" className="px-8 md:px-10 flex-shrink-0" onClick={clearAllFilters}>
+          CLEAR ALL
+        </Button>
+      </div>
     </div>
   );
 };
