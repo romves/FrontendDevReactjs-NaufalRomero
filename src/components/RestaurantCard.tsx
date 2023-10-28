@@ -1,7 +1,7 @@
 import { Restaurant } from "../types/types";
-import RatingStar from "./RatingStar";
+import RatingStar from "./ui/RatingStar";
 import clsx from "clsx";
-import Button from "./Button";
+import Button from "./ui/Button";
 import { Link } from "react-router-dom";
 
 const RestaurantCard = ({ data }: { data: Restaurant }) => {

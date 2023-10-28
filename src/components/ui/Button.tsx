@@ -1,5 +1,5 @@
 import React from "react";
-import clsxm from "../lib/clsxm";
+import clsxm from "../../lib/clsxm";
 
 enum ButtonVariant {
   "default",
@@ -22,7 +22,7 @@ const Button = ({
       {...rest}
       className={clsxm(
         "font-medium",
-        "rounded px-4 py-2",
+        "rounded px-4 py-2 flex-shrink-0",
         "hover:brightness-125",
         "transition duration-100",
         {

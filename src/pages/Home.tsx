@@ -1,5 +1,5 @@
 import { useContext, useState } from "react";
-import Button from "../components/Button";
+import Button from "../components/ui/Button";
 import FilterNavigation from "../components/FilterNavigation";
 import RestaurantCard from "../components/RestaurantCard";
 import { FilteredDataContext } from "../context/RestaurantContext";

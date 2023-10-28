@@ -2,8 +2,9 @@ import { useState, useEffect } from "react";
 import { Restaurant } from "../types/types";
 import { IoChevronBack } from "react-icons/io5";
 import { useParams, Link } from "react-router-dom";
-import RatingStar from "../components/RatingStar";
-import Button from "../components/Button";
+import RatingStar from "../components/ui/RatingStar";
+import Button from "../components/ui/Button";
+import ReviewItem from "../components/ReviewItem";
 
 const DetailPage = () => {
   const [data, setData] = useState<Restaurant>();
@@ -42,8 +43,11 @@ const DetailPage = () => {
             <p className="">{data.description}</p>
 
             <div className="flex gap-2 flex-1 items-center py-6 border-y">
-              {data.categories.map((category) => (
-                <div className="border border-cust-blue text-cust-blue rounded-lg px-4 py-1">
+              {data.categories.map((category, index) => (
+                <div
+                  key={index}
+                  className="border border-cust-blue text-cust-blue rounded-lg px-4 py-1"
+                >
                   {category.name}
                 </div>
               ))}
@@ -69,26 +73,7 @@ const DetailPage = () => {
 
         <div>
           <h2 className="text-3xl font-bold">Reviews</h2>
-          <div className="space-y-4 py-12">
-            {data.customerReviews.map((item) => (
-              <div className="flex items-start p-2 pb-4 md:p-4 md:pb-8 border-b justify-between">
-                <div className="flex gap-4 w-full">
-                  <img
-                    src="/images/user.png"
-                    alt=""
-                    className="w-[5vh] h-[5vh] aspect-square flex-shrink-0 object-cover rounded-full border-2 "
-                  />
-                  <div className="flex flex-col md:flex-row justify-between w-full gap-4">
-                    <div>
-                      <h3 className="font-bold">{item.name}</h3>
-                      <p>{item.review}</p>
-                    </div>
-                    <p className="flex-shrink-0 text-gray-500">{item.date}</p>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
+          <ReviewItem data={data} />
         </div>
       </main>
     );

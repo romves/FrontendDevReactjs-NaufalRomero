@@ -1,7 +1,7 @@
 import { useContext, useState, useEffect, useCallback } from "react";
 
 import { FilteredDataContext } from "../context/RestaurantContext";
-import Button from "./Button";
+import Button from "./ui/Button";
 import { Restaurant } from "../types/types";
 
 const FilterNavigation = () => {
@@ -140,6 +140,10 @@ const FilterNavigation = () => {
             <option value="Italia">Italia</option>
             <option value="Modern">Modern</option>
             <option value="Jawa">Jawa</option>
+            <option value="Bali">Bali</option>
+            <option value="Spanyol">Spanyol</option>
+            <option value="Sunda">Sunda</option>
+            <option value="Sop">Sop</option>
           </select>
         </div>
 
